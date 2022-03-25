@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+
+{% apply spaceless %}
+<h1>Register</h1>
+
+{{ form_start(registrationForm, {'attr' : {'novalidate':'novalidate'}}) }}
+
+<div>
+    {{ form_row(registrationForm.Nom, {'attr' : {'placeholder':'Votre nom'}}) }}
+</div>
+
+<div>
+    {{ form_row(registrationForm.Prenom, {'attr' : {'placeholder':'Votre prenom'}}) }}
+</div>
+
+<div>
+    {{ form_row(registrationForm.email, {'attr' : {'placeholder':'exmple@esprit.com'}}) }}
+    <div>
+        {{ form_row(registrationForm.plainPassword, {
+            label: 'Password'
+        }) }}
+
+        {{ form_row(registrationForm.GSM, {'attr' : {'placeholder':'+216 ** *** ***'}}) }}
+        {{ form_row(registrationForm.date_naissance) }}
+
+
+
+
+
+        {{ form_row(registrationForm.agreeTerms) }}
+
+        {{ form_row(registrationForm.captchaCode) }}
+
+
+
+
+        <button type="submit" class="btn">Register</button>
+        {{ form_end(registrationForm) }}
+        {% endapply %}
+        {% endblock %}

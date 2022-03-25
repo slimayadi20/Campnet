@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+
+
+
+    <meta charset="UTF-8" />
+    <meta name="description" content=""/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>{% block title%} Camp Net - Chill Out{% endblock %} </title>
+    <!-- Windows 8 Tiles -->
+    <meta name="msapplication-TileColor" content="#FFFFFF"/>
+    <!-- ****** faviconit.com favicons ****** -->
+    {% block css%} <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}"/>
+        <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}"/>
+        <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap.css')}}"/>
+        <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}"/>
+        <link rel="stylesheet" href="{{asset('css/picto-foundry-emotions.css')}}" />
+        <link rel="stylesheet" href="{{asset('css/picto-foundry-household.css')}}" />
+        <link rel="stylesheet" href="{{asset('css/picto-foundry-shopping-finance.css')}}" />
+        <link rel="stylesheet" href="{{asset('css/picto-foundry-general.css')}}" />
+
+        <link href="{{asset('css/font-awesome.min.css')}}" rel="stylesheet"/>
+        <link href="{{asset('css/fontawesome-free-6.0.0-web/css/all.css')}}" rel="stylesheet"/>
+
+        <link rel="icon" type="image/png" href="{{asset('images/logo.png')}}" /> {% endblock %}
+    <!-- apps/frontend/templates/layout.php -->
+
+
+</head>
+<body>
+{% block one %}
+    <div class="pushWrapper">
+        <!-- Header (shown on mobile only) -->
+        <header class="pageHeader">
+            <!-- Menu Trigger -->
+            <button class="menu-trigger">
+                <span class="lines"></span>
+            </button>
+
+            <!-- Logo -->
+            <a class="headerLogo smoothScroll" href="#">
+                <i class="fa-solid fa-campground  size25"></i>
+                <span class="text">Camp'Net</span>
+            </a>
+        </header>
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+
+            <nav class="mainMenu">
+                <ul class="menu">
+                    <li>
+                        <a class="smoothScroll" href="#timeline-part" title="About Camp'Net"><i class="step icon-question size-24"></i><span class="text">About Camp'Net</span></a>
+                    </li>
+                    <li>
+                        <a href="{{ path('afficheproduit') }}" class="smoothScroll" href="#stastistical-part" title="Services"><i class="icon-reciept-1 size-24"></i><span class="text">Produit</span></a>
+                    </li>
+                    <li>
+                        <a class="smoothScroll" href="#testimonials-part" title="Avis"><i class="step icon-thumbs-up size-24"></i><span class="text">Avis</span></a>
+                    </li>
+                    <li>
+                        <a class="smoothScroll" href="#featured-part" title="Top Events"><i class="step icon-bulleted-list size-24"></i><span class="text">Top Evenements</span></a>
+                    </li>
+                    <li>
+                        <a class="smoothScroll" href="#pricing-part" title="notre magasin"><i class="step icon-cogs size-24"></i><span class="text">Notre Magasin</span></a>
+                    </li>
+                    <li>
+                        <a class="smoothScroll" href="#membership-part" title="Authentification"><i class="step icon-door-key size-24"></i><span class="text">Authentification</span></a>
+                    </li>
+                    <li>
+                        <a class="smoothScroll" href="#tips-part" title="Astuce"><i class="step icon-light-bulb size-24"></i><span class="text">Astuces</span></a>
+                    </li>
+                    <li>
+                        <a class="smoothScroll" href="#events-part" title="Evenements"><i class="step icon-calendar-1 size-24 size"></i><span class="text">Evenements</span></a>
+                    </li>
+                    <li>
+                        <a class="smoothScroll" href="#contact-form" title="Contact Form"><i class="step icon-envelope-1 size-34"></i><span class="text">Contact</span></a>
+                    </li>
+                </ul>
+            </nav>
+
+            <nav class="backToTop">
+                <ul class="backToTop-menu">
+                    <li><a class="smoothScroll" href="#section-intro" title="to the top"><i class="fa fa-chevron-up"></i><span class="text">Back to top</span></a></li>
+                </ul>
+            </nav>
+
+        </div>
+
+        <!-- Share Menu -->
+
+        <!-- Main -->
+        <main>
+
+            <!-- FORMS -->
+
+            <!-- INTRO -->
+
+            <section class="section-intro" id="section-intro" data-stellar-background-ratio="0.5" data-stellar-vertical-offset="0">
+
+                <a class="LC-logo" href="#/">
+                    <i class="icon-LClogo"></i>
+                    <!-- span class="text">Luxury</span> -->
+                </a>
+
+                <div class="content">
+                    <div class="container-template">
+                        <h1>
+                            <i class="fa-solid fa-campground "></i>
+                            <span class="seconday">CAMP'Net</span>
+                            <span>Organisation de Camping</span>
+                        </h1>
+                    </div>
+                </div>
+
+            </section>
+            <section class="timeline-part" id="timeline-part">
+
+                <div class="content">
+                    <div class="container-template">
+
+                        <div class="headergroup">
+                            <h2 class="in-point">
+                                <span class="seconday">Notre Mission</span>
+                                <span>CAMP' Net</span>
+                            </h2>
+                        </div>
+
+                        <div class="container-template" >
+                            <p><strong>La Premiere platforme qui organise les sports extremes en Tunisie </strong></p>
+                            <p>Depuis que les vacances existent,
+                                le camping est très vite devenu une alternative accessible à tous pour profiter de la nature. Si vous avez envie de profiter d'un vrai confort même en plein air, CAMP' NET vous propose un assortiment de meubles de camping pratiques et légers. </p><br></br>
+                            <p>Vous trouverez tout le nécessaire pour planifier vos vacances en plein air.</p>
+                        </div>
+
+                        <!-- <ul class="timeline">
+                                 <li class="year">2012</li>
+                                 <li class="upper-line">
+                                     <span class="title">Founded by The Developers team </span>
+                                     <span class="timeline-content paragraph-text">&#8220;Our motive in launching Camp'Net was to create a wider platform for Nature lovers for a better adventure ..&#8221;
+                                     <strong>, FOUNDER &amp; MANAGING DIRECTOR</strong>
+                                     </span>
+                                 </li>
+
+
+                                 <li class="year">2013</li>
+                                 <li class="upper-line">
+                                     <span class="title">2800 + people buy and sell their property in a year</span>
+                                     <span class="paragraph-text timeline-content">
+                                         The website combines a luxury apartments that gives both members of where to go on a practical level to find the best of the best in the world.
+                                     </span>
+                                 </li>
+
+                                 <li class="year">2014</li>
+                                 <li class="upper-line">
+                                     <span class="title">Luxury Homes started their business around the globe.
+                                     </span>
+                                     <span class="timeline-content">
+                                         We have our business in 12 countries all over the world. We want to spread it throughout the world. You can contribute us joining the winning the team
+                                     </span>
+                                 </li>
+                             </ul>
+                         </div>-->
+                    </div>
+
+                </div></section>
+            <!-- ONLINE STATISTICS SECTION -->
+
+            <section class="stastistical-part" id="stastistical-part">
+
+
+                <!-- section-seperator -->
+                <div class="section-seperator">
+                    <div class="container-template">
+                        <h2>
+                            <span class="seconday">Our</span>
+                            Services </h2>
+                    </div>
+                </div>
+
+                <!-- Content -->
+                <div class="content">
+                    <div class="container-template">
+
+                        <div class="headergroup">
+                            <h2>
+                                <span class="seconday">Ranked No.1 for</span>
+                                <span>&quot;Find yourself outside.
+								&quot;</span>
+                            </h2>
+                        </div>
+                        <div class="intro container-template">
+                            <p>Discover and book tent camping, RV parks, cabins, treehouses, and glamping.
+                            </p>
+                        </div>
+
+
+                        <!-- Statistics -->
+                        <div class="statistics">
+
+
+
+                            <!-- Icon Statistics -->
+                            <ul class="rounded-icon">
+
+
+                                <li>
+                                    <button name="button">
+                                        <div class="rounded-icon-icon"><i class="fa-solid fa-person-hiking size-36"></i></div>
+                                        <div class="rounded-icon-value"></div>
+                                        <div class="rounded-icon-label">Randonnée</div>
+                                    </button>
+                                </li>
+
+
+                                <li>
+                                    <button name="button">
+                                        <div class="rounded-icon-icon"><i class="fa-solid fa-map-location-dot size-36"></i></div>
+                                        <div class="rounded-icon-value"></div>
+                                        <div class="rounded-icon-label">Centres de camping</div>
+                                    </button>
+                                </li>
+
+
+                                <li>
+                                    <button name="button">
+                                        <div class="rounded-icon-icon"><i class="fa-solid fa-cart-shopping size-36"></i></div>
+                                        <div class="rounded-icon-value"></div>
+                                        <div class="rounded-icon-label">Magasin</div>
+                                    </button>
+                                </li>
+
+                                <li>
+                                    <button name="button">
+                                        <div class="rounded-icon-icon"><i class="fa-solid fa-calendar-days size-36"></i></div>
+                                        <div class="rounded-icon-value"></div>
+                                        <div class="rounded-icon-label">Evenements</div>
+                                    </button>
+                                </li>
+
+                            </ul>
+
+
+
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- TESTIMONIALS SECTION -->
+
+            <section class="testimonials-part" id="testimonials-part">
+                <!-- section-seperator -->
+                <div class="testimonials-part-section-seperator">
+                    <div class="container-template">
+                        <h2>
+                            <span class="seconday">Les avis </span>
+                            de nos clients
+                        </h2>
+
+                        <div class="testimonials-container">
+                            <ul class="testimonials testimonials-wrapper">
+
+                                <li class="testimonials-slide">
+                                    <span class="testimonial-text">J'ai deja assisté a un évenement que j'ai reservé ma place sur la platfome Camp'net, et j'était tres satisfaite de qualité de service offerts par cette application, tres bonne initiave, je note </span>
+                                    <span class="testimonial-author">Ahmed Said, Directeur des assurances Tunisie</span>
+                                </li>
+
+
+                                <li class="testimonials-slide">
+                                    <span class="testimonial-text">Enfin une platforme qui organise les sport extremes en Tunisie!&#039; Je me suis deja inscrit dans un programme proposé par Camp'Net l'été precedent et c'était super cool,&#039; J'ai meme eu des services et un guide selon mes demandes spécifique, je le recommande vivement! </span>
+                                    <span class="testimonial-author">Amir Toujani, Ingenieur électrique, Zodiac</span>
+                                </li>
+
+
+                                <li class="testimonials-slide">
+                                    <span class="testimonial-text">j'ai deja commander des produits de Camp'Net, il y a une grande varieté de produits a un prix abordable vu qu'il ya la formule d'achat de produits deja utilisé et qu'on a la possibilité d'y ajouter nos produits pour vente. </span>
+                                    <span class="testimonial-author">Amira El Ayesh, Responsable service Ressources humaines à Poulina Group</span>
+                                </li>
+                            </ul></div>
+                        <br>
+                        <button type="button" class="form-btn semibold">Donner un Avis</button>
+                    </div>
+                    </ul>
+                </div>
+
+                <div class="testimonials-pagination"></div>
+            </section></div>
+    </div>
+
+    </section>
+<!-- MEMBERSHIP SECTION-->
+
+    <section class="membership-part" id="membership-part">
+        {% block oussema %}
+            <!-- section-seperator -->
+            <div class="membership-part-section-seperator" data-stellar-background-ratio="0.5" data-stellar-vertical-offset="0">
+                <div class="container-template">
+                    <img style="margin: auto;" src="{{asset('images/keys.png')}}" alt="keys">
+                    <div class="headergroup">
+                        <h2>
+                            <span class="seconday">Get</span>
+                            <span>S'authentifier</span>
+
+                        </h2>
+                    </div>
+
+                    <div class="content-template">
+                        <br> </br><p>Vous avez deja un compte?</p>
+                        <br>
+                        <button type="button" class="form-btn semibold">Se Connecter</button>
+                        <br> </br>
+                        <p>Vous N'avez pas de Compte?</p>
+                    </div>
+                    <br> </br>
+                    <button type="button" class="form-btn semibold">S'inscrire</button>
+                </div>
+            </div>
+
+        {% endblock %}</section>
+
+<!-- PROFILE -->
+
+    <section class="featured-part" id="featured-part">
+        {% block cyrine %}
+            <!-- Content -->
+            <div class="content">
+                <div class="container-template">
+
+                    <div class="headergroup">
+                        <h2>
+                            <span class="seconday">Top</span>
+                            <span>Nos Top Evenements</span>
+                        </h2>
+                    </div>
+                    <br>
+
+                    <div class="intro content-template">
+                        <p> Selon Vos Avis que vous avez partagé avec nous, nous presente nos <strong>3 Top évenements!</strong></p>
+                    </div>
+                    <br>
+
+                    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                        <!-- Indicators -->
+                        <ol class="carousel-indicators">
+                            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                        </ol>
+
+                        <!-- Wrapper for slides -->
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <img src="{{asset('images/event1.png')}}" alt="...">
+                                <div class="carousel-caption">
+
+                                </div>
+                            </div>
+                            <div class="item">
+                                <img src="{{asset('images/event2.png')}}" alt="...">
+                                <div class="carousel-caption">
+
+                                </div>
+                            </div>
+                            <div class="item">
+                                <img src="{{asset('images/event3.png')}}" alt="...">
+                                <div class="carousel-caption">
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Controls -->
+                        <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                            <span class="glyphicon glyphicon-chevron-left"></span>
+                        </a>
+                        <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                            <span class="glyphicon glyphicon-chevron-right"></span>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+
+        {% endblock %}</section>
+<!-- Important Tips -->
+
+    <section class="tips-part" id="tips-part">
+        {% block astuce %}
+            <div class="section-seperator">
+                <div class="container-template">
+                    <h2>
+                        <span class="seconday">Propositions</span>
+                        D'ASTUCES
+                    </h2>
+                </div>
+            </div>
+
+
+
+            <!-- Content -->
+            <div class="content">
+                <div class="container-template">
+
+                    <h2>
+                        POINT ASTUCES
+                    </h2>
+
+                    <div class="content-template">
+                        <ul>
+                            <li>
+                                <i class="icon-task-check"></i> Emporter le plus d'aliments congelés possible.
+                            </li>
+                            <li>
+                                <i class="icon-task-check"></i> Éviter de trop charger la glacière. Cela favorise une meilleure circulation de l’air et aide à maintenir les aliments à la bonne température.
+                            </li>
+                            <li>
+                                <i class="icon-task-check"></i> Économiser du combustible en bloquant le vent. Si votre réchaud de camping n’est pas muni d’un coupe-vent, placez votre glacière à côté du réchaud (à une distance sécuritaire) de manière à bloquer les bourrasques.
+                            </li>
+                            <li>
+                                <i class="icon-task-check"></i> Utiliser une bouteille de plastique pour transporter les oeufs.Pratique pour les omelettes, les crêpes et Cie!
+                            </li>
+                            <li>
+                                <i class="icon-task-check"></i> Opter pour la glace en blocs. Plus les morceaux de glace sont petits, plus ils fondent vite.
+                            </li>
+                            <li>
+                                <i class="icon-task-check"></i> Préparer une mini-trousse de premiers soins.
+                            </li>
+                        </ul>
+                    </div>
+
+
+                </div>
+            </div>
+
+        {% endblock %}</section>
+
+<!-- PRICING -->
+
+<section class="pricing-part" id="pricing-part">
+
+    <!-- section-seperator -->
+    <div class="section-seperator">
+        <div class="container-template">
+            <h2>
+                <span class="seconday">Notre</span>
+                Magasin
+            </h2>
+        </div>
+    </div>
+
+    <!-- Content -->
+    <div class="content">
+        <div class="container-template">
+
+
+            <!-- Menu -->
+            <ul class="pricing-menu">
+
+                <li class="selected"><a href="#">Liste de nos Produits</a></li>
+
+
+
+
+            </ul>
+
+
+
+            <!-- Slides -->
+            <div class="pricing-container">
+                <div class="pricing-wrapper">
+
+
+                    <div class="pricing-slide">
+                        <div class="headergroup">
+                            <h3>
+                                <span>Notre Materiels</span>
+
+                            </h3>
+
+
+
+                            <p> <strong> {% block body %}{% endblock %} </strong> </p>
+                        </div>
+                    </div>
+
+
+                    <div class="pricing-slide">
+                        <div class="headergroup">
+                            <h3>
+
+                            </h3>
+
+
+
+
+
+                            <p>{% block shop_content %}
+                                {% endblock %}</p>
+                            </h3>
+                        </div>
+
+
+                        <p>&nbsp;</p>
+                    </div>
+                </div>
+
+
+
+    {% endblock %}</section>
+
+
+<!-- EVENTS CALENDAR SECTION-->
+
+<section class="events-part" id="events-part">
+    {% block syrine %}
+
+        <!-- section-seperator -->
+        <div class="section-seperator">
+            <div class="container-template">
+                <h2>
+                    <span class="seconday">Nos </span>
+                    Evenements
+                </h2>
+            </div>
+        </div>
+
+        <!-- Content -->
+        <div class="content">
+            <div class="container-template">
+                <!-- Events List -->
+                <ul class="events-list">
+                    <li class="event-titles">
+                        <div class="event-title">Evenements</div>
+                        <div class="event-title">Date</div>
+                        <div class="event-title">Localisation</div>
+                    </li>
+
+                    <li>
+                        <div class="event-text">
+                            <div class="event-details content-template">
+                                <h4 class="event-title">The Secret Soul</h4>
+
+                                <div class="event-date">
+                                    09/03/2022							</div>
+
+                                <div class="event-location">
+                                    Jbal Ressas  	</div>
+                            </div>
+
+                            <div class="event-description content-template">Une Ambiance qui sort de la nature avec les vues de montagne de Jbal Ressas, detendez vous dans la nature pendant deux jours de suite! PRIX: 35DT/PERSONNE </div>
+                        </div>
+
+                        <div class="event-image">
+                            <img src="{{asset('images/one.png')}}" alt="your text" />
+                        </div>
+                    </li>
+
+
+                    <li>
+                        <div class="event-text">
+                            <div class="event-details content-template">
+                                <h4 class="event-title">Randonnée Oued Zitoun</h4>
+
+                                <div class="event-date">
+                                    29/03/2022
+                                </div>
+
+                                <div class="event-location">
+                                    Oued Zitoun
+                                </div>
+                            </div>
+
+                            <div class="event-description content-template">laissez vous allez avec les cascades de Oued Zitoun, avec l'installation camping luxueuse, profitez d'un moment de repos extreme! PRIX: 60/PERSONNE
+                            </div>
+                        </div>
+
+                        <div class="event-image">
+                            <img src="{{asset('images/two.png')}}" alt="your text" />					</div>
+                    </li>
+
+
+                    <li>
+                        <div class="event-text">
+                            <div class="event-details content-template">
+                                <h4 class="event-title">The deep hole</h4>
+
+                                <div class="event-date">
+                                    02/03/2022							</div>
+
+                                <div class="event-location">
+                                    Ichkeul							</div>
+                            </div>
+
+                            <div class="event-description content-template">Au jbal de ichkeul il y aura toujours un rendez-vous entre la nature et les animaux, soyez alors dans ce comping et profitez? PRIX: 32DT/PERSONNE </div>
+                        </div>
+
+                        <div class="event-image">
+                            <img src="{{asset('three.png')}}" alt="your text " />					</div>
+                    </li>
+
+
+                    <li>
+                        <div class="event-text">
+                            <div class="event-details content-template">
+                                <h4 class="event-title">The dream never dies</h4>
+
+                                <div class="event-date">
+                                    18/03/2022
+                                </div>
+
+                                <div class="event-location">
+                                    Takelsa, Nabeul
+                                </div>
+                            </div>
+
+                            <div class="event-description content-template">Sur la plage, et un feu de camp sur le sable, sera la meilleure occasion de commencer le printemps convenablement. PRIX: 40DT/PERSONNE </div>
+                        </div>
+
+                        <div class="event-image">
+                            <img src="{{asset('images/dndd1.png')}}" alt="your text" />
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    {% endblock %}</section>
+
+<!-- FOUNDERS & TEAM SECTION-->
+
+
+
+<section class="contact-form" id="contact-form">
+    {% block contact %}
+        <div class="headergroup">
+            <h2>
+                <span class="seconday">Contact us</span>
+                <span>CONTACTEZ-NOUS</span>
+            </h2>
+        </div>
+
+        <div class="container">
+            <div class="inner contact">
+                <!-- Form Area -->
+                <div class="contact-form">
+                    <!-- Form -->
+                    <br />
+                    <form id="contact-us" method="post" action="contact.php">
+                        <!-- Left Inputs -->
+                        <div class="col-xs-6 ">
+                            <!-- Name -->
+                            <br>
+                            <input type="text" name="name" id="name" required="required" class="form" placeholder="Nom" />
+                            <!-- Email -->
+                            <input type="email" name="email" id="email" required="required" class="form" placeholder="Email" />
+                            <!-- secondayject -->
+                            <input type="text" name="secondayject" id="secondayject" required="required" class="form" placeholder="numero de telephone" />
+                        </div><!-- End Left Inputs -->
+                        <!-- Right Inputs -->
+                        <div class="col-xs-6">
+                            <!-- Message -->
+                            <br>
+                            <textarea name="message" id="message" class="form textarea"  placeholder="Message"></textarea>
+                        </div><!-- End Right Inputs -->
+                        <!-- Bottom secondaymit -->
+                        <div class="relative fullwidth col-xs-12">
+                            <!-- Send Button -->
+                            <button type="button" id="secondaymit" name="secondaymit" class="form-btn semibold">Envoyer Message</button>
+                        </div><!-- End Bottom secondaymit -->
+                        <!-- Clear -->
+                        <div class="clear"></div>
+                    </form>
+
+                    <!-- Your Mail Message -->
+                    <div class="mail-message-area">
+                        <!-- Message -->
+                        <div class="alert gray-bg mail-message not-visible-message">
+                            <strong>Merci pour votre avis !</strong> Votre message est bien reçu.
+                        </div>
+                    </div>
+                </div>
+            </div><!-- End Contact Form Area -->
+        </div><!-- End Inner -->
+
+        <br />
+
+    {% endblock %}</section>
+
+
+<footer class="pageFooter">
+    <div class="btnContainer">
+        <a class="gc-link" href="#" target="_blank"><i class="icon-handcrafted"></i></a>
+    </div>
+
+    <div class="btnContainer">
+        <a class="LC-logo" href="#/">
+            <i class="icon-LClogo"></i>
+        </a>
+    </div>
+</footer>
+
+</main>
+
+</div>
+{% block js %} <script type='text/javascript' src="{{asset('js/jquery.js')}}"></script>
+    <script type='text/javascript' src="{{asset('js/jquery-migrate.js')}}"></script>
+    <script type='text/javascript' src="{{asset('js/jquery.form.js')}}"></script>
+    <script type='text/javascript' src="{{asset('js/jquery.mobile.custom.js')}}"></script>
+    <script type='text/javascript' src="{{asset('js/modernizr.js')}}"></script>
+    <script type='text/javascript' src="{{asset('js/response.js')}}"></script>
+    <script type='text/javascript' src="{{asset('js/swiper.js')}}"></script>
+    <script type='text/javascript' src="{{asset('js/waypoints.js')}}"></script>
+    <script type='text/javascript' src="{{asset('js/jquery.stellar.js')}}"></script>
+    <script type='text/javascript' src="{{asset('js/module.js')}}"></script>
+    <script type='text/javascript' src="{{asset('js/bootstrap.min.js')}}"></script>
+
+    <script src="{{asset('js/wow.min.js')}}"></script> {% endblock %}
+<script>
+    {% block two %}
+    new WOW().init();
+</script> {% endblock %}
+
+</body>
+</html>

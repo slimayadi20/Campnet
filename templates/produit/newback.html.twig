@@ -1,0 +1,14 @@
+{% extends 'base-back.html.twig' %}
+
+{% block title %}New Produit{% endblock %}
+
+{% block body %}
+
+
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    {{ form_widget(form.submit) }}
+
+    {{ form_end(form) }}
+    <a href="{{ path('afficheproduitback') }}">Consulter la liste de produits</a>
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends 'base-back.html.twig' %}
+
+
+{% block title %}Produit index{% endblock %}
+
+{% block body %}
+
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nom</th>
+            <th>Prix</th>
+            <th>Photo</th>
+            <th>Description</th>
+            <th>Disponibilte</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for produit in c %}
+            <tr>
+
+                <td>{{ produit.id }}</td>
+                <td>{{ produit.nom }}</td>
+                <td>{{ produit.prix }}</td>
+                <td>{{ produit.photo }}</td>
+                <td>{{ produit.description }}</td>
+                <td>{{ produit.disponibilte }}</td>
+                <td>
+                    <a href="{{ path('produit_showback', {'id': produit.id}) }}">Afficher le produit</a>
+                <td>
+                    <a class="btn btn-outline-dark" href="{{ path('modifierproduitback',{'id': produit.id}) }}">Update</a>
+
+
+                </td>
+                <td> <a class="btn btn-outline-danger" href="{{ path('supprimerproduitback',{'id':produit.id}) }}" >Delete
+                        <i class="mdi mdi-delete"></i></a>
+                </td>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('ajouterproduitback') }}">Ajouter un produit</a>
+
+
+{% endblock %}

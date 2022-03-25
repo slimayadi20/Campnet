@@ -1,0 +1,44 @@
+
+
+
+
+
+{% block body %}
+<h1 align ="center"> Liste de produits</h1>
+<table class="table">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Nom</th>
+        <th>Prix</th>
+        <th>Photo</th>
+        <th>Description</th>
+        <th>Disponibilte</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for produit in c %}
+        <tr>
+            <td>{{ produit.id }}</td>
+            <td>{{ produit.nom }}</td>
+            <td>{{ produit.prix }}</td>
+            <td>{{ produit.photo }}</td>
+            <td>{{ produit.description }}</td>
+            <td>{{ produit.disponibilte }}</td>
+            <td>
+                <a href="{{ path('produit_show', {'id': produit.id}) }}">Afficher le produit</a>
+                {#                    //<a href="{{ path('produit_panier', {'id': produit.id}) }}">ajouter le produit au panier</a>#}
+                {#                    <a href="{{ path('produit_edit', {'id': produit.id}) }}">edit</a>#}
+            </td>
+        </tr>
+    {% else %}
+        <tr>
+            <td colspan="7">no records found</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<a href="{{ path('ajouterproduit') }}">Ajouter un produit</a>
+{% endblock %}

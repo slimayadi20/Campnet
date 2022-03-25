@@ -1,0 +1,55 @@
+{% extends 'base-back.html.twig' %}
+
+{% block title %}Liste des utlisateurs{% endblock %}
+
+{% block body %}
+<h1> Liste des utlisateurs </h1>
+<table class="table">
+    <thead>
+        <th>ID</th>
+        <th>Email</th>
+        <th>Roles</th>
+        <th>Nom</th>
+        <th>prenom</th>
+        <th>GSM</th>
+       
+    </thead>
+
+    <tbody>
+        {% for user in users %}
+        <tr>
+            <td>{{user.id}}</td>
+            <td>{{user.email}}</td>
+            <td>
+                {% for role in user.roles %}
+                    {% if role == "ROLE_USER"%}
+                        Utilisateur
+                    {% elseif role == "ROLE_ADMIN"%}
+                        Administrateur
+                    {% elseif role == "ROLE_GUIDE"%}
+                        Guide
+                    {% endif %}
+
+                {% endfor %}
+            </td>
+            <td>{{user.nom}}</td>
+            <td>{{user.prenom}}</td>
+            <td>{{user.GSM}}</td>
+            
+            
+            <td><a href="{{ path('admin_modifier_utilisateur', {'id': user.id}) }}"
+                class="btn btn-warning">Modifier</a></td>
+                
+        </tr>
+            
+        {% else %}
+            <tr>
+    
+                <td collapse=5 >il n'y a pas d'utilisateur inscrit</td>
+            </tr>
+       {% endfor %} 
+
+    </tbody>
+    
+</table>
+{% endblock %}
