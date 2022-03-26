@@ -1,0 +1,12 @@
+{% extends 'base-front.html.twig' %}
+
+{% block title %}Liste des avis{% endblock %}
+
+{% block body %}
+    <h1>Liste des avis</h1>
+    {% for commentaire in commentaires %}
+        <h2>{{ commentaire.id }}</h2>
+        <div>{{ commentaire.description }}</div>
+    {% endfor %}
+    {{ knp_pagination_render(commentaires) }}
+{% endblock %}

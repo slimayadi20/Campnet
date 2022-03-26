@@ -78,7 +78,7 @@ class CentreCampController extends AbstractController
             $entityManager->persist($centreCamp);
             $entityManager->flush();
             try {
-              
+
             } catch (FileException $e) {
                 // ... handle exception if something happens during file upload
             }
