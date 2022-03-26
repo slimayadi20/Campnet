@@ -38,7 +38,7 @@ class PromoController extends AbstractController
     /**
      * @Route("/new", name="app_promo_new", methods={"GET", "POST"})
      */
-    public function new(Request $request, PromoRepository $promoRepository): Response
+    public function new(Request $request, PromoRepository $promoRepository, \Swift_Mailer $Mailer): Response
     {
         $promo = new Promo();
         $form = $this->createForm(PromoType::class, $promo);
@@ -46,6 +46,21 @@ class PromoController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $promoRepository->add($promo);
+            $message= (new Swift_Message('nouveau Promo'))
+                // on attribut l'epéditeur
+                ->setFrom('ihebbt@gmail.com')
+                //on attribut le destinataire
+                ->setTo('ihebbt@gmail.com')
+                // on crée le message la vue Twig
+                ->setBody($this->renderView(
+                    'emails/Promo.html.twig'
+                ), 'text/html'
+
+
+                );
+
+            ; //on envoie le message
+            $Mailer->send($message);
             return $this->redirectToRoute('app_promo_indexback', [], Response::HTTP_SEE_OTHER);
         }
 

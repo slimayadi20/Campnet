@@ -58,25 +58,39 @@
                         <a href="{{ path('afficheproduit') }}" class="smoothScroll" href="#stastistical-part" title="Services"><i class="icon-reciept-1 size-24"></i><span class="text">Produit</span></a>
                     </li>
                     <li>
-                        <a  href="{{ path('evenement_index') }}"  class="smoothScroll" href="#testimonials-part" title="Avis"><i class="step icon-thumbs-up size-24"></i><span class="text">Evenement</span></a>
+                        <a  href="{{ path('evenement_index') }}"  class="smoothScroll" href="#testimonials-part" title="Avis"><i class="step icon-calendar-1 size-24 size"></i><span class="text">Evenement</span></a>
                     </li>
                     <li>
                         <a href="{{ path('app_centre_camp_index') }}" class="smoothScroll" href="#featured-part" title="Top Events"><i class="step icon-bulleted-list size-24"></i><span class="text">Centre camp</span></a>
                     </li>
                     <li>
-                        <a class="smoothScroll" href="#pricing-part" title="notre magasin"><i class="step icon-cogs size-24"></i><span class="text">Notre Magasin</span></a>
+                        <a href="{{ path('activite_index') }}" class="smoothScroll" href="#pricing-part" title="notre magasin"><i class="step icon-cogs size-24"></i><span class="text">Nos Activites</span></a>
                     </li>
                     <li>
-                        <a class="smoothScroll" href="#membership-part" title="Authentification"><i class="step icon-door-key size-24"></i><span class="text">Authentification</span></a>
+                        <a href="{{ path('app_reclamation_new') }}" class="smoothScroll" href="#pricing-part" title="notre magasin"><i class="step icon-envelope-1 size-34"></i><span class="text">Vos Reclamations</span></a>
                     </li>
                     <li>
-                        <a class="smoothScroll" href="#tips-part" title="Astuce"><i class="step icon-light-bulb size-24"></i><span class="text">Astuces</span></a>
+                        <a href="{{ path('app_commentaire_new') }}" class="smoothScroll" href="#pricing-part" title="notre magasin"><i class="step icon-envelope-1 size-34"></i><span class="text">Vos Avis</span></a>
+                    </li>
+
+                    <li>
+                        {% if app.user %}
+
+                            <a href="{{ path('app_logout') }}" class="smoothScroll" href="#membership-part" title="Authentification"><i class="step icon-door-key size-24"></i><span class="text">Logout</span></a>
+                        {% else %}
+
+                            <a href="{{ path('app_login') }}" class="smoothScroll" href="#membership-part" title="Authentification"><i class="step icon-door-key size-24"></i><span class="text">Authentification</span></a>
+                        {% endif %}
                     </li>
                     <li>
-                        <a class="smoothScroll" href="#events-part" title="Evenements"><i class="step icon-calendar-1 size-24 size"></i><span class="text">Evenements</span></a>
-                    </li>
-                    <li>
-                        <a class="smoothScroll" href="#contact-form" title="Contact Form"><i class="step icon-envelope-1 size-34"></i><span class="text">Contact</span></a>
+
+                        {% if app.user  %}
+                            {% for role in app.user.roles %}
+                                {% if role != "ROLE_USER" %}
+                                    <a href="{{ path('admin') }}" class="smoothScroll" href="#membership-part" title="Authentification"><i class="step icon-door-key size-24"></i><span class="text">dashboard</span></a>
+                                {% endif %}
+                            {% endfor %}
+                        {% endif %}
                     </li>
                 </ul>
             </nav>
