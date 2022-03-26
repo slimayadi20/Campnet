@@ -1,0 +1,11 @@
+{% extends 'base-back.html.twig' %}
+
+{% block title %}New CentreCamp{% endblock %}
+
+{% block body %}
+    <h1>Create new CentreCamp</h1>
+
+    {{ include('centre_camp/_form.html.twig') }}
+
+    <a href="{{ path('app_centre_camp_indexback') }}">back to list</a>
+{% endblock %}

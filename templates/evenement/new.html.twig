@@ -1,0 +1,21 @@
+{% extends 'base-back.html.twig' %}
+
+{% block title %}New Evenement{% endblock %}
+
+{% block body %}
+    <h1>Create new Evenement</h1>
+
+    {{ include('evenement/_form.html.twig') }}
+
+    <a href="{{ path('evenement_list') }}">back to list</a>
+
+    <h4>{{ evenement.nom }}</h4>
+    </a>
+    {#  <form role="search" id="nav-search-form" method="post" action="{{ path('recherche_evenement') }}">#}
+
+        <input style="width: fit-content" type="text" class="form-control round" id="search"  name="search" placeholder="Search">
+        <br>
+        <button class="genric-btn primary-border circle" type="submit" > Rechercher </button>
+
+    </form>
+{% endblock %}

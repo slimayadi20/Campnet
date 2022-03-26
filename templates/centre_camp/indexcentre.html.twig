@@ -1,0 +1,66 @@
+{% extends 'frontcentre.html.twig' %}
+
+{% block title %}CentreCamp index{% endblock %}
+
+{% block oub %}
+
+    <h1>CentreCamp index</h1>
+
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom centre</th>
+                <th>Description</th>
+                <th>Imgage</th>
+                <th>Lieux</th>
+                <th>Telephone</th>
+                <th>Email</th>
+               
+                
+            </tr>
+        </thead>
+        <tbody>
+        {% for centre_camp in centre_camps %}
+        <div class="card mb-3" style="max-width: 540px;">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="{{asset('public/images/' ~ centre_camp.imgCentre )}}" class="img-fluid rounded-start" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">{{ centre_camp.nomCentre }}</h5>
+        <p class="card-text">{{ centre_camp.DescriptionCentre }}</p>
+        <h4>{{ centre_camp.mailCentre }}</h4> 
+        <p class="card-text"><small class="text-muted">{{ centre_camp.lieux }}</small></p>
+      </div>
+    </div>
+  </div>
+</div>
+            <tr>
+                <td>{{ centre_camp.id }}</td>
+                <td>{{ centre_camp.nomCentre }}</td>
+                <td>{{ centre_camp.DescriptionCentre }}</td>
+              
+                <td> <img src="{{asset('public/images/' ~ centre_camp.imgCentre )}}" style="width: 80px:height:80px"></td>
+                <td>{{ centre_camp.lieux }}</td>
+                <td>{{ centre_camp.tlfCentre }}</td>
+                <td>{{ centre_camp.mailCentre }}</td>
+              
+                <td>
+                    <a href="{{ path('app_centre_camp_show', {'id': centre_camp.id}) }}">show</a>
+                    <!-- <a href="{{ path('app_centre_camp_edit', {'id': centre_camp.id}) }}">edit</a> !-->
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    
+{% endblock %}
+

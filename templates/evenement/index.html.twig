@@ -1,0 +1,72 @@
+{% extends 'welcome.html.twig' %}
+
+{% block title %}Evenement index{% endblock %}
+
+{% block body %}
+<a href="{{ path('afficheproduit') }}"> Home </a>
+
+    <section class="destinations">
+        <img src="{{ asset('images/svgs/destination.svg')}}" alt="destination" class="destinations__logo">
+        <h2 class="destination__title">Voici Nos Evénements</h2>
+
+        <form role="search" id="nav-search-form" method="post" action="{{ path('recherche_evenement') }}">
+
+            <input style="width: fit-content" type="text" class="form-control round" id="search"  name="search" placeholder="Search">
+            <br>
+            <button class="btn" type="submit" > Search </button>
+
+        </form>
+
+
+        </br>
+        <div class="destinations__places">
+
+            {% for evenement in evenements %}
+
+                <div class="place">
+                    <div class="place__banner">
+                        <img src="{{ asset('images/')}}{{ evenement.photo }}" alt="{{ evenement.photo }}" class="place__img">
+                        <div class="place__like">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="place__like-icon place__like-icon--active" width="24.037"
+                                 height="24.037" viewBox="0 0 24.037 24.037" stroke="#e76f51" stroke-width="1.5" fill="#fff">
+                                <path id="Path_955" data-name="Path 955"
+                                      d="M15.822,8.979v.029H4V-2.1A5.915,5.915,0,0,1,9.912-7.841a5.913,5.913,0,0,1,5.849,5.049,5.912,5.912,0,0,1,.061,11.772Z"
+                                      transform="translate(2.716 20.496) rotate(-45)" />
+                            </svg>
+
+                        </div>
+
+                        <div class="place__price">
+                            <span class="place__price-text">${{ evenement.prix }}</span>
+                        </div>
+                    </div>
+                    <h3 class="place__title">{{ evenement.nom }}</h3>
+
+                    <a href="{{ path('evenement_show', {'id': evenement.id}) }}"  class="btn place__link">show</a>
+                    <p class="place__caption">{{ evenement.description }}.</p>
+                    <form method="post" action="{{ path('reservation_new') }}">
+                        <button type="submit" class="btn place__link">Je choisis Cet événement</button>
+
+                    </form>
+
+                    <h3 class="place__title">{{ evenement.lieu }}</h3>
+
+                    <form method="POST" action="{{ path('event_show_user', {'id': evenement.id}) }}">
+                        <p>
+                            <input style="display: none" value="{{ evenement.lieu }}" type="text" name="address" placeholder="Enter address">
+                        </p>
+
+                        <input class="genric-btn success circle" value="Montrer Dans Maps" type="submit" name="submit_address">
+                    </form>
+                </div>
+                {# <a href="{{ path('evenement_edit', {'id': evenement.id}) }}">edit</a>#}
+
+            {% endfor %}
+
+        </div>
+        <a href="{{ path('evenement_index') }}" class="btn destinations__btn">view all</a>
+
+    </section>
+
+
+{% endblock %}

@@ -1,0 +1,5 @@
+{% extends 'welcomeee.html.twig' %}
+{% block body %}
+<h1>Liste des Evenements JSON</h1>
+{{ data|json_encode() }}
+{% endblock %}

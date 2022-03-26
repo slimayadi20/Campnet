@@ -1,0 +1,23 @@
+{% extends 'welcome.html.twig' %}
+{% block body %}
+    <section class="destinations">
+    <img src="{{ asset('images/svgs/destination.svg')}}" alt="destination" class="destinations__logo">
+    <h2 class="destination__title">Voici Nos Evénements</h2>
+    </br>
+    </br>
+    </section>
+    <h1> Recherche avancée </h1>
+    {{  form(search_form)}}
+
+{% endblock %}
+
+{% block Javascript %}
+{{ parent() }}
+
+<script>
+
+    $(document).ready(function (){
+        $('select').formSelect();
+    });
+</script>
+{% endblock %}
