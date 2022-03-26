@@ -42,6 +42,7 @@ class PanierController extends AbstractController
                 "quantite" => $quantite,
             ];
             $total += $product->getPrix() * $quantite;
+
 //            $total += $product->getPrix() * $quantite;
         }
 
@@ -58,7 +59,13 @@ class PanierController extends AbstractController
         }else{
             $panier[$id] = 1;
         }
-
+        $p = new Panier();
+        $p->setNom($product->getNom());
+        $p->setQuantite($panier[$id]);
+        $p->setPrix($product->getPrix());
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->persist($p);
+        $entityManager->flush();
         // On sauvegarde dans la session
         $session->set("panier", $panier);
 

@@ -3,7 +3,7 @@
 namespace App\Entity;
 use Symfony\Component\Validator\Constraints as Assert;
 use App\Entity\Adresse;
-
+use Symfony\Component\Serializer\Annotation\Groups;
 use App\Repository\CommandeRepository;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -16,6 +16,7 @@ class Commande
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups("post:read")
      */
     private $idcommande;
 
@@ -30,28 +31,33 @@ class Commande
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message="product is required")
+     * @Groups("post:read")
      */
     private $Produit;
 
     /**
      * @ORM\Column(type="integer")
      * @Assert\NotBlank(message="Quantity is required")
+     * @Groups("post:read")
      */
     private $Quantite;
 
     /**
      * @ORM\Column(type="float")
      * @Assert\NotBlank(message="Total is required")
+     * @Groups("post:read")
      */
     private $Total;
     /**
      * @ORM\Column(type="datetime")
      * @Assert\NotBlank(message="Date is required")
+     * @Groups("post:read")
      */
     protected $date;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Adresse", inversedBy="Commande")
+     *
      */
     private $adresse;
 

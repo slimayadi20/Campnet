@@ -294,7 +294,13 @@ $form=$this->createForm(ProduitType::class,$produit);
         }else{
             $panier[$id] = 1;
         }
-
+        $p = new Panier();
+        $p->setNom($product->getNom());
+        $p->setQuantite($panier[$id]);
+        $p->setPrix($product->getPrix());
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->persist($p);
+        $entityManager->flush();
         // On sauvegarde dans la session
         $session->set("panier", $panier);
 

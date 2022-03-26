@@ -4,7 +4,7 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Symfony\Component\Validator\Constraints as Assert;
-
+use Symfony\Component\Serializer\Annotation\Groups;
 use App\Repository\AdresseRepository;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -18,6 +18,7 @@ class Adresse
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups("post:read")
      */
     private $id;
 
@@ -25,24 +26,28 @@ class Adresse
     /**
      * @ORM\Column(type="string", length=255)
      *  @Assert\NotBlank(message="Name is required")
+     * @Groups("post:read")
      */
     private $Nom;
 
     /**
      * @ORM\Column(type="string", length=255)
      *  @Assert\NotBlank(message="Last Name is required")
+     * @Groups("post:read")
      */
     private $Prenom;
 
     /**
      * @ORM\Column(type="string", length=255)
      *  @Assert\NotBlank(message="Adress is required")
+     * @Groups("post:read")
      */
     private $Adress;
 
     /**
      * @ORM\Column(type="string", length=255)
      *  @Assert\NotBlank(message="City is required")
+     * @Groups("post:read")
      */
     private $City;
 
@@ -50,6 +55,7 @@ class Adresse
      * @ORM\Column(type="string", length=255)
      *  @Assert\NotBlank(message="Email is required")
      * @Assert\Email(message = "The email '{{ value }}' is not a valid email.")
+     * @Groups("post:read")
      */
     private $Email;
 
@@ -61,6 +67,7 @@ class Adresse
      *     minMessage= "Le N°tel  est trop court",
      *     maxMessage="Le N°tel est trop long")
      * @Assert\NotBlank (message="Phone  is required")
+     * @Groups("post:read")
      */
     private $Tel;
 

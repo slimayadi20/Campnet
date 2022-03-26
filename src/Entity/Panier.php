@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\PanierRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass=PanierRepository::class)
@@ -14,21 +15,25 @@ class Panier
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups("post:read")
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups("post:read")
      */
     private $nom;
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups("post:read")
      */
     private $quantite;
 
     /**
      * @ORM\Column(type="float")
+     * @Groups("post:read")
      */
     private $prix;
 
