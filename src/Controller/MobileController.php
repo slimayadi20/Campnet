@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Entity\Evenement;
+use App\Entity\Reservation;
 use App\Repository\ProduitRepository;
 use Endroid\QrCode\Builder\Builder;
 use Endroid\QrCode\Encoding\Encoding;
@@ -384,5 +386,225 @@ class MobileController extends AbstractController
             return new Response("user not found");
         }
 
+    }
+    /**
+     *@Route ("/displayEvenements", name="display_evenement")
+     */
+    public function allEvenementAction()
+    {
+        $event = $this->getDoctrine()->getManager()->getRepository(Evenement::class)->findAll();
+        $encoder = new JsonEncoder();
+        $normalizer = new ObjectNormalizer();
+        $normalizer->setCircularReferenceHandler(function ($object) {
+            return $object->getId();
+        });
+
+        $serializer = new Serializer([$normalizer],[$encoder]);
+        $formatted = $serializer->normalize($event);
+        return new JsonResponse($formatted);
+
+    }
+
+
+    /**
+     *@Route ("/addEvenement", name="add_evenement")
+     *@Method("POST")
+     */
+    public function ajouterEvenementAction(Request $request)
+    {
+        $evenement= new Evenement();
+        $nom=$request->query->get("nom");
+        $photo=$request->query->get("photo");
+        $description=$request->query->get("description");
+        $lieu=$request->query->get("lieu");
+        $prix=$request->query->get("prix");
+        $em=$this->getDoctrine()->getManager();
+
+        $evenement->setNom( $nom);
+        $evenement->setPhoto($photo);
+        $evenement->setDescription($description);
+        $evenement->setLieu($lieu);
+        $evenement->setPrix($prix);
+
+        $em->persist($evenement);
+        $em->flush();
+        $serializer = new Serializer([new ObjectNormalizer()]);
+        $formatted = $serializer->normalize($evenement);
+        return new JsonResponse($formatted);
+
+
+    }
+    /**
+     *@Route ("/deleteEvenement", name="delete_evenement")
+     *@Method("DELETE")
+     */
+    public function deleteEvenementAction(Request $request){
+        $id=$request->get("id");
+
+        $em=$this->getDoctrine()->getManager();
+        $evenement=$em->getRepository(Evenement::class)->find($id);
+        if($evenement!=null) {
+            $em->remove($evenement);
+            $em->flush();
+
+            $serialize = new Serializer ([new ObjectNormalizer()]);
+            $formatted = $serialize->normalize("Evenement a ete supprime avec succes");
+            return new JsonResponse($formatted);
+        }
+        return new JsonResponse("id evenement invalide");
+    }
+
+    /**
+     *@Route ("/updateEvenement", name="update_evenement")
+     *@Method("PUT")
+     */
+    public function modifierEvenementAction(Request $request){
+        $em=$this->getDoctrine()->getManager();
+        $evenement=$this->getDoctrine()->getManager()
+            ->getRepository(Evenement::class)
+            ->find($request->get("id"));
+
+        $evenement->setNom($request->get("nom"));
+        $evenement->setPhoto($request->get("photo"));
+        $evenement->setDescription($request->get("description"));
+        $evenement->setLieu($request->get("lieu"));
+        $evenement->setPrix($request->get("prix"));
+
+        $em->persist($evenement);
+        $em->flush();
+        $serializer=new Serializer([new ObjectNormalizer()]);
+        $formatted = $serializer->normalize($evenement);
+        return new JsonResponse("Evenement a ete modifie avec succes");
+
+
+    }
+
+    /**
+     * @Route("/detailEvenement", name="detail_evenement")
+     * @Method ("GET")
+     */
+
+    public function detailEvenementAction(Request $request)
+    {
+        $id = $request->get("id");
+
+
+        $em = $this->getDoctrine()->getManager();
+        $evenement = $this->getDoctrine()->getManager()->getRepository(Evenement::class)->find($id);
+        $encoder = new JsonEncoder();
+
+        $jsonContent =   $normalizer = new ObjectNormalizer();
+
+        $jsonContent = $normalizer->setCircularReferenceHandler(function ($object) {
+            return $object->getDescription(); });
+        $serializer = new Serializer([$normalizer],[$encoder]);
+        $formatted = $serializer->normalize($evenement);
+        return new JsonResponse($formatted);    }
+    /**
+     *@Route ("/displayReservations", name="display_reservation")
+     */
+    public function allReservationAction()
+    {
+        $reserv = $this->getDoctrine()->getManager()->getRepository(Reservation::class)->findAll();
+        $encoder = new JsonEncoder();
+        $normalizer = new ObjectNormalizer();
+        $normalizer->setCircularReferenceHandler(function ($object) {
+            return $object->getId();
+        });
+
+        $serializer = new Serializer([$normalizer],[$encoder]);
+        $formatted = $serializer->normalize($reserv);
+        return new JsonResponse($formatted);
+
+    }
+
+
+    /**
+     *@Route ("/addReservation", name="add_Reservation")
+     *@Method("POST")
+     */
+    public function ajouterReservationAction(Request $request)
+    {
+        $Reservation= new Reservation();
+        $nbr_pers=$request->query->get("nbr_pers");
+        $date=$request->query->get("date");
+        $date_r=$request->query->get("date_r");
+        $Evenement=$request->query->get("Evenement");
+        $em=$this->getDoctrine()->getManager();
+
+        $Reservation->setNbrPers( $nbr_pers);
+        $Reservation->setDate($date);
+        $Reservation->setDateR($date_r);
+        $Reservation->setEvenement($Evenement);
+
+        $em->persist($Reservation);
+        $em->flush();
+        $serializer = new Serializer([new ObjectNormalizer()]);
+        $formatted = $serializer->normalize($Reservation);
+        return new JsonResponse($formatted);
+
+
+    }
+    /**
+     *@Route ("/deleteReservation", name="delete_Reservation")
+     *@Method("DELETE")
+     */
+    public function deleteReservationAction(Request $request){
+        $id=$request->get("id");
+
+        $em=$this->getDoctrine()->getManager();
+        $Reservation=$em->getRepository(Reservation::class)->find($id);
+        if($Reservation!=null) {
+            $em->remove($Reservation);
+            $em->flush();
+
+            $serialize = new Serializer ([new ObjectNormalizer()]);
+            $formatted = $serialize->normalize("Reservation a été supprimé avec succés");
+            return new JsonResponse($formatted);
+        }
+        return new JsonResponse("id Reservation invalide");
+    }
+
+    /**
+     *@Route ("/updateReservation", name="update_Reservation")
+     *@Method("PUT")
+     */
+    public function modifierReservationAction(Request $request){
+        $em=$this->getDoctrine()->getManager();
+        $Reservation=$this->getDoctrine()->getManager()
+            ->getRepository(Reservation::class)
+            ->find($request->get("id"));
+
+
+        $Reservation->setNbr_pers($request->get("nbr_pers"));
+        $Reservation->setDate($request->get("date"));
+        $Reservation->setDateR($request->get("date_r"));
+        $Reservation->setEvenement($request->get("evenement"));
+
+        $em->persist($Reservation);
+        $em->flush();
+        $serializer=new Serializer([new ObjectNormalizer()]);
+        $formatted = $serializer->normalize($Reservation);
+        return new JsonResponse("Reservation a été modifié avec succés");
+
+
+    }
+
+    /**
+     * @Route("/detailReservation", name="detail_Reservation")
+     * @Method ("GET")
+     */
+
+    public function detailReservationAction(Request $request)
+    {
+        $id=$request->get("id");
+
+        $em=$this->getDoctrine()->getManager();
+        $Reservation=$this->getDoctrine()->getManager()->getRepository(Reservation::class)->find($id);
+        $encoder=new JsonEncoder();
+        $normalizer=new ObjectNormalizer();
+        $normalizer->setCircularReferenceHandler(function ($object){
+            return $object->getNbrPers();
+        });
     }
 }
