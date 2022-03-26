@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\ActiviteRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass=ActiviteRepository::class)
@@ -15,46 +16,60 @@ class Activite
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups("post:read")
+
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message="le champ nom de demande est obligatoire")
+     * @Groups("post:read")
+
      */
     private $nom;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message="la photo est obligatoire")
+     * @Groups("post:read")
+
      */
     private $photo;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message="la description s'il vous plait")
+     * @Groups("post:read")
+
      */
     private $description;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message="le lieu  est obligatoire")
+     * @Groups("post:read")
      */
     private $lieu;
 
     /**
      * @ORM\Column(type="float")
      * @Assert\NotBlank(message="les prix est obligatoire !!")
+     * @Groups("post:read")
+
      */
     private $prix;
 
     /**
      * @ORM\ManyToOne(targetEntity=Categorie::class, inversedBy="activites")
+     * @Groups("post:read")
+
      */
     private $categorie;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups("post:read")
      */
     private $statut;
 
