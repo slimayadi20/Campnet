@@ -194,17 +194,14 @@ class EvenementController extends AbstractController
 
                 // Move the file to the directory where brochures are stored
                 try {
-                    $imageFile->move(
-                        $this->getParameter('images'),
-                        $newFilename
-                    );
+
                 } catch (FileException $e) {
                     // ... handle exception if something happens during file upload
                 }
 
                 // updates the 'brochureFilename' property to store the PDF file name
                 // instead of its contents
-                $evenement->setPhoto($newFilename);
+                $evenement->setPhoto("ee");
             }
 
             $entityManager->persist($evenement);

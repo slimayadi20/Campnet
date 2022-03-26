@@ -1,0 +1,42 @@
+{% extends 'base-front.html.twig' %}
+{% block title %}Activite index{% endblock %}
+
+{% block body %}
+    <h1>Activite </h1>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nom</th>
+            <th>Photo</th>
+            <th>Description</th>
+            <th>Lieu</th>
+            <th>Prix</th>
+            <th>actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for activite in activites %}
+            <tr>
+                <td>{{ activite.id }}</td>
+                <td>{{ activite.nom }}</td>
+                <td>{{ activite.photo }}</td>
+                <td>{{ activite.description }}</td>
+                <td>{{ activite.lieu }}</td>
+                <td>{{ activite.prix }}</td>
+                <td>
+                    <a href="{{ path('activite_showfront', {'id': activite.id}) }}">show</a>
+
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('activite_new') }}">Create new</a>
+{% endblock %}
