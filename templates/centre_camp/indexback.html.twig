@@ -1,0 +1,105 @@
+{% extends 'base-back.html.twig' %}
+
+{% block title %}CentreCamp index{% endblock %}
+
+{# {% block body %}
+    <h1>CentreCamp index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom_centre</th>
+                <th>Description_centre</th>
+                <th>Img_centre</th>
+                <th>image</th>
+                <th>Lieux</th>
+                <th>Tlf_centre</th>
+                <th>Mail_centre</th>
+                <th>Mdps_centre</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for centre_camp in centre_camps %}
+            <tr>
+                <td>{{ centre_camp.id }}</td>
+                <td>{{ centre_camp.nomCentre }}</td>
+                <td>{{ centre_camp.DescriptionCentre }}</td>
+                <td>{{ centre_camp.imgCentre }}</td>
+                <td> <img src="{{asset('public/images/' ~ centre_camp.imgCentre )}}" style="width: 80px:height:80px"></td>
+                <td>{{ centre_camp.lieux }}</td>
+                <td>{{ centre_camp.tlfCentre }}</td>
+                <td>{{ centre_camp.mailCentre }}</td>
+                <td>{{ centre_camp.mdpsCentre }}</td>
+                <td>
+                    <a href="{{ path('app_centre_camp_show', {'id': centre_camp.id}) }}">show</a>
+                    <a href="{{ path('app_centre_camp_edit', {'id': centre_camp.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table> 
+
+    <a href="{{ path('app_centre_camp_new') }}">Create new</a> #}
+
+
+{% block body %}
+
+
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Centre de camping</h4>
+                    <p class="card-description">  </p>
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th>Id</th>
+                <th>Nom centre</th>
+                <th>Description centre</th>
+               
+                <th>image</th>
+                <th>Lieux</th>
+                <th>Tlf_centre</th>
+                <th>Mail_centre</th>
+                <th>Mdps_centre</th>
+                <th>actions</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                      {% for centre_camp in centre_camps %}
+                        <tr>
+                          <td>{{ centre_camp.id }}</td>
+                          <td>{{ centre_camp.nomCentre }}</td>
+                          <td>{{ centre_camp.DescriptionCentre }}</td>
+                
+                          <td> <img src="{{asset('public/images/' ~ centre_camp.imgCentre )}}" style="width: 80px:height:80px"></td>
+                          <td>{{ centre_camp.lieux }}</td>
+                          <td>{{ centre_camp.tlfCentre }}</td>
+                          <td>{{ centre_camp.mailCentre }}</td>
+                          <td>{{ centre_camp.mdpsCentre }}</td>
+                          <td>
+                            <label class="badge badge-success"> <a href="{{ path('app_centre_camp_show', {'id': centre_camp.id}) }}">show</a></label>
+                          </td>
+                          <td>
+                          <label class="badge badge-danger"> <a href="{{ path('app_centre_camp_edit', {'id': centre_camp.id}) }}">edit</a></label>
+                         </td>
+                         {% else %}
+                            
+                          <tr>
+                           <td colspan="9">no records found</td>
+                           </tr>
+                        </tr>
+                         {% endfor %}  
+                      </tbody>
+                    </table>
+                    <a href="{{ path('app_centre_camp_new') }}">Create new</a>
+                  </div>
+                </div>
+              
+{% endblock %}
+ 

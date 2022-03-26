@@ -59,7 +59,7 @@
                         <a href="{{ path('afficheproduit') }}" class="smoothScroll" href="#stastistical-part" title="Services"><i class="icon-reciept-1 size-24"></i><span class="text">Produit</span></a>
                     </li>
                     <li>
-                        <a class="smoothScroll" href="#testimonials-part" title="Avis"><i class="step icon-thumbs-up size-24"></i><span class="text">Avis</span></a>
+                        <a  href="{{ path('evenement_index') }}"  class="smoothScroll" href="#testimonials-part" title="Avis"><i class="step icon-thumbs-up size-24"></i><span class="text">Evenement</span></a>
                     </li>
                     <li>
                         <a class="smoothScroll" href="#featured-part" title="Top Events"><i class="step icon-bulleted-list size-24"></i><span class="text">Top Evenements</span></a>
@@ -169,224 +169,16 @@
                 </div></section>
             <!-- ONLINE STATISTICS SECTION -->
 
-            <section class="stastistical-part" id="stastistical-part">
-
-
-                <!-- section-seperator -->
-                <div class="section-seperator">
-                    <div class="container-template">
-                        <h2>
-                            <span class="seconday">Our</span>
-                            Services </h2>
-                    </div>
-                </div>
-
-                <!-- Content -->
-                <div class="content">
-                    <div class="container-template">
-
-                        <div class="headergroup">
-                            <h2>
-                                <span class="seconday">Ranked No.1 for</span>
-                                <span>&quot;Find yourself outside.
-								&quot;</span>
-                            </h2>
-                        </div>
-                        <div class="intro container-template">
-                            <p>Discover and book tent camping, RV parks, cabins, treehouses, and glamping.
-                            </p>
-                        </div>
-
-
-                        <!-- Statistics -->
-                        <div class="statistics">
-
-
-
-                            <!-- Icon Statistics -->
-                            <ul class="rounded-icon">
-
-
-                                <li>
-                                    <button name="button">
-                                        <div class="rounded-icon-icon"><i class="fa-solid fa-person-hiking size-36"></i></div>
-                                        <div class="rounded-icon-value"></div>
-                                        <div class="rounded-icon-label">Randonnée</div>
-                                    </button>
-                                </li>
-
-
-                                <li>
-                                    <button name="button">
-                                        <div class="rounded-icon-icon"><i class="fa-solid fa-map-location-dot size-36"></i></div>
-                                        <div class="rounded-icon-value"></div>
-                                        <div class="rounded-icon-label">Centres de camping</div>
-                                    </button>
-                                </li>
-
-
-                                <li>
-                                    <button name="button">
-                                        <div class="rounded-icon-icon"><i class="fa-solid fa-cart-shopping size-36"></i></div>
-                                        <div class="rounded-icon-value"></div>
-                                        <div class="rounded-icon-label">Magasin</div>
-                                    </button>
-                                </li>
-
-                                <li>
-                                    <button name="button">
-                                        <div class="rounded-icon-icon"><i class="fa-solid fa-calendar-days size-36"></i></div>
-                                        <div class="rounded-icon-value"></div>
-                                        <div class="rounded-icon-label">Evenements</div>
-                                    </button>
-                                </li>
-
-                            </ul>
-
-
-
-                        </div>
-                    </div>
-                </div>
-
-            </section>
 
             <!-- TESTIMONIALS SECTION -->
-
-            <section class="testimonials-part" id="testimonials-part">
-                <!-- section-seperator -->
-                <div class="testimonials-part-section-seperator">
-                    <div class="container-template">
-                        <h2>
-                            <span class="seconday">Les avis </span>
-                            de nos clients
-                        </h2>
-
-                        <div class="testimonials-container">
-                            <ul class="testimonials testimonials-wrapper">
-
-                                <li class="testimonials-slide">
-                                    <span class="testimonial-text">J'ai deja assisté a un évenement que j'ai reservé ma place sur la platfome Camp'net, et j'était tres satisfaite de qualité de service offerts par cette application, tres bonne initiave, je note </span>
-                                    <span class="testimonial-author">Ahmed Said, Directeur des assurances Tunisie</span>
-                                </li>
-
-
-                                <li class="testimonials-slide">
-                                    <span class="testimonial-text">Enfin une platforme qui organise les sport extremes en Tunisie!&#039; Je me suis deja inscrit dans un programme proposé par Camp'Net l'été precedent et c'était super cool,&#039; J'ai meme eu des services et un guide selon mes demandes spécifique, je le recommande vivement! </span>
-                                    <span class="testimonial-author">Amir Toujani, Ingenieur électrique, Zodiac</span>
-                                </li>
-
-
-                                <li class="testimonials-slide">
-                                    <span class="testimonial-text">j'ai deja commander des produits de Camp'Net, il y a une grande varieté de produits a un prix abordable vu qu'il ya la formule d'achat de produits deja utilisé et qu'on a la possibilité d'y ajouter nos produits pour vente. </span>
-                                    <span class="testimonial-author">Amira El Ayesh, Responsable service Ressources humaines à Poulina Group</span>
-                                </li>
-                            </ul></div>
-                        <br>
-                        <button type="button" class="form-btn semibold">Donner un Avis</button>
-                    </div>
-                    </ul>
-                </div>
-
-                <div class="testimonials-pagination"></div>
-            </section></div>
     </div>
 
     </section>
 <!-- MEMBERSHIP SECTION-->
 
-    <section class="membership-part" id="membership-part">
-        {% block oussema %}
-            <!-- section-seperator -->
-            <div class="membership-part-section-seperator" data-stellar-background-ratio="0.5" data-stellar-vertical-offset="0">
-                <div class="container-template">
-                    <img style="margin: auto;" src="{{asset('images/keys.png')}}" alt="keys">
-                    <div class="headergroup">
-                        <h2>
-                            <span class="seconday">Get</span>
-                            <span>S'authentifier</span>
-
-                        </h2>
-                    </div>
-
-                    <div class="content-template">
-                        <br> </br><p>Vous avez deja un compte?</p>
-                        <br>
-                        <button type="button" class="form-btn semibold">Se Connecter</button>
-                        <br> </br>
-                        <p>Vous N'avez pas de Compte?</p>
-                    </div>
-                    <br> </br>
-                    <button type="button" class="form-btn semibold">S'inscrire</button>
-                </div>
-            </div>
-
-        {% endblock %}</section>
 
 <!-- PROFILE -->
 
-    <section class="featured-part" id="featured-part">
-        {% block cyrine %}
-            <!-- Content -->
-            <div class="content">
-                <div class="container-template">
-
-                    <div class="headergroup">
-                        <h2>
-                            <span class="seconday">Top</span>
-                            <span>Nos Top Evenements</span>
-                        </h2>
-                    </div>
-                    <br>
-
-                    <div class="intro content-template">
-                        <p> Selon Vos Avis que vous avez partagé avec nous, nous presente nos <strong>3 Top évenements!</strong></p>
-                    </div>
-                    <br>
-
-                    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-                        <!-- Indicators -->
-                        <ol class="carousel-indicators">
-                            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-                        </ol>
-
-                        <!-- Wrapper for slides -->
-                        <div class="carousel-inner">
-                            <div class="item active">
-                                <img src="{{asset('images/event1.png')}}" alt="...">
-                                <div class="carousel-caption">
-
-                                </div>
-                            </div>
-                            <div class="item">
-                                <img src="{{asset('images/event2.png')}}" alt="...">
-                                <div class="carousel-caption">
-
-                                </div>
-                            </div>
-                            <div class="item">
-                                <img src="{{asset('images/event3.png')}}" alt="...">
-                                <div class="carousel-caption">
-
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Controls -->
-                        <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-                            <span class="glyphicon glyphicon-chevron-left"></span>
-                        </a>
-                        <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-                            <span class="glyphicon glyphicon-chevron-right"></span>
-                        </a>
-                    </div>
-
-                </div>
-            </div>
-
-        {% endblock %}</section>
 <!-- Important Tips -->
 
     <section class="tips-part" id="tips-part">
@@ -717,6 +509,7 @@
     <script type='text/javascript' src="{{asset('js/jquery.stellar.js')}}"></script>
     <script type='text/javascript' src="{{asset('js/module.js')}}"></script>
     <script type='text/javascript' src="{{asset('js/bootstrap.min.js')}}"></script>
+    <script src="{{ asset('js/script.js')}}"></script>
 
     <script src="{{asset('js/wow.min.js')}}"></script> {% endblock %}
 <script>

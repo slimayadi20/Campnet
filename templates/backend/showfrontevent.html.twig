@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+
+
+
+    <meta charset="UTF-8" />
+    <meta name="description" content=""/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>{% block title %}Camp'Net - Chill'Out{% endblock %}</title>
+    <!-- Windows 8 Tiles -->
+    <meta name="msapplication-TileColor" content="#FFFFFF"/>
+    <!-- ****** faviconit.com favicons ****** -->
+    <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}"/>
+    <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap.css')}}"/>
+    <link rel="stylesheet" type="text/css" href="{{asset('css/animate.min.css')}}"/>
+    <link rel="stylesheet" href="{{asset('css/picto-foundry-emotions.css')}}" />
+    <link rel="stylesheet" href="{{asset('css/picto-foundry-household.css')}}" />
+    <link rel="stylesheet" href="{{asset('css/picto-foundry-shopping-finance.css')}}" />
+    <link rel="stylesheet" href="{{asset('css/picto-foundry-general.css')}}" />
+
+    <link href="{{asset('css/font-awesome.min.css"')}} rel="stylesheet"/>
+    <link href="{{asset('css/fontawesome-free-6.0.0-web/css/all.css')}}" rel="stylesheet"/>
+
+    <link rel="icon" type="image/png" href="{{asset('images/logo.png')}}" />
+
+</head>
+<body>
+<div class="pushWrapper">
+    <!-- Header (shown on mobile only) -->
+    <header class="pageHeader">
+        <!-- Menu Trigger -->
+        <button class="menu-trigger">
+            <span class="lines"></span>
+        </button>
+
+        <!-- Logo -->
+        <a class="headerLogo smoothScroll" href="#">
+            <i class="fa-solid fa-campground  size25"></i>
+            <span class="text">Camp'Net</span>
+        </a>
+    </header>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+
+        <nav class="mainMenu">
+            <ul class="menu">
+                <li>
+                    <a class="smoothScroll" href="#timeline-part" title="About Camp'Net"><i class="step icon-question size-24"></i><span class="text">About Camp'Net</span></a>
+                </li>
+                <li>
+                    <a class="smoothScroll" href="#stastistical-part" title="Services"><i class="icon-reciept-1 size-24"></i><span class="text">Services</span></a>
+                </li>
+                <li>
+                    <a class="smoothScroll" href="#testimonials-part" title="Avis"><i class="step icon-thumbs-up size-24"></i><span class="text">Avis</span></a>
+                </li>
+                <li>
+                    <a class="smoothScroll" href="#featured-part" title="Top Events"><i class="step icon-bulleted-list size-24"></i><span class="text">Top Evenements</span></a>
+                </li>
+                <li>
+                    <a class="smoothScroll" href="#pricing-part" title="notre magasin"><i class="step icon-cogs size-24"></i><span class="text">Notre Magasin</span></a>
+                </li>
+                <li>
+                    <a class="smoothScroll" href="#membership-part" title="Authentification"><i class="step icon-door-key size-24"></i><span class="text">Authentification</span></a>
+                </li>
+                <li>
+                    <a class="smoothScroll" href="#tips-part" title="Astuce"><i class="step icon-light-bulb size-24"></i><span class="text">Astuces</span></a>
+                </li>
+                <li>
+                    <a class="smoothScroll" href="#events-part" title="Evenements"><i class="step icon-calendar-1 size-24 size"></i><span class="text">Evenements</span></a>
+                </li>
+                <li>
+                    <a class="smoothScroll" href="#contact-form" title="Contact Form"><i class="step icon-envelope-1 size-34"></i><span class="text">Contact</span></a>
+                </li>
+            </ul>
+        </nav>
+
+        <nav class="backToTop">
+            <ul class="backToTop-menu">
+                <li><a class="smoothScroll" href="#section-intro" title="to the top"><i class="fa fa-chevron-up"></i><span class="text">Back to top</span></a></li>
+            </ul>
+        </nav>
+
+    </div>
+
+    <!-- Share Menu -->
+    <nav class="shareMenu">
+        <a href="#" class="share-menu-trigger"><i class="fa fa-share-alt"></i></a>
+
+        <div class="tweet-share">
+
+            <!-- Facebook - ADD HERE -->
+
+            <!-- Twitter - ADD HERE -->
+            <a href="https://twitter.com/share" class="twitter-share-button" data-via="TaphaNgum">Tweet</a>
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+
+
+        </div>
+    </nav>
+
+    <!-- Main -->
+    <main>
+
+        <!-- FORMS -->
+
+        <!-- INTRO -->
+
+        <section class="section-intro" id="section-intro" data-stellar-background-ratio="0.5" data-stellar-vertical-offset="0">
+
+            <a class="LC-logo" href="#/">
+                <i class="icon-LClogo"></i>
+                <!-- span class="text">Luxury</span> -->
+            </a>
+
+            <div class="content">
+                <div class="container-template">
+
+                </div>
+            </div>
+
+        </section>
+        <section class="timeline-part" id="timeline-part">
+
+            <div class="content">
+                {% block body %}
+
+
+                {% endblock %}
+            </div>
+
+        </section>
+
+
+</div>
+</div>
+
+</section>
+
+
+
+
+<footer class="pageFooter">
+    <div class="btnContainer">
+        <a class="gc-link" href="#" target="_blank"><i class="icon-handcrafted"></i></a>
+    </div>
+
+    <div class="btnContainer">
+        <a class="LC-logo" href="#/">
+            <i class="icon-LClogo"></i>
+        </a>
+    </div>
+</footer>
+
+</main>
+
+</div>
+<script type='text/javascript' src='{{asset('js/jquery.js')}}'></script>
+<script type='text/javascript' src='{{asset('js/jquery-migrate.js')}}'></script>
+<script type='text/javascript' src='{{asset('js/jquery.form.js')}}'></script>
+<script type='text/javascript' src='{{asset('js/jquery.mobile.custom.js')}}'></script>
+<script type='text/javascript' src='{{asset('js/modernizr.js')}}'></script>
+<script type='text/javascript' src='{{asset('js/response.js')}}'></script>
+<script type='text/javascript' src='{{asset('js/swiper.js')}}'></script>
+<script type='text/javascript' src='{{asset('js/waypoints.js')}}'></script>
+<script type='text/javascript' src='{{asset('js/jquery.stellar.js')}}'></script>
+<script type='text/javascript' src='{{asset('js/module.js')}}'></script>
+<script type='text/javascript' src='{{asset('js/bootstrap.min.js')}}'></script>
+<script src="{{asset('js/wow.min.js')}}"></script>
+<script>
+    new WOW().init();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+
+{{ form_start(form) }}
+
+{{ form_errors(form.date) }}
+{{ form_label(form.date,"date d'arrivée") }}
+{{ form_widget(form.date) }}
+
+{{ form_errors(form.date_r) }}
+{{ form_label(form.date_r,"date de retour") }}
+{{ form_widget(form.date_r)}}
+
+
+{{ form_errors(form.nbr_pers) }}
+{{ form_label(form.nbr_pers,"Nombre de personnes") }}
+{{ form_widget(form.nbr_pers)}}
+
+{{ form_errors(form.evenement) }}
+{{ form_label(form.evenement,"Choisir un evenement") }}
+{{ form_widget(form.evenement)}}
+
+<button class="btn">{{ button_label|default('je confirme ma réservation') }}</button>
+
+{{ form_end(form) }}

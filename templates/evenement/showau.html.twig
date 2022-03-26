@@ -1,0 +1,61 @@
+{% extends 'welcome.html.twig' %}
+
+{% block title %}Evenement{% endblock %}
+
+{% block body %}
+    <h1>Evenement</h1>
+
+    <table class="table">
+        <tbody>
+        <tr>
+            <th>Id</th>
+            <td>{{ evenement.id }}</td>
+        </tr>
+        <tr>
+            <th>Nom</th>
+            <td>{{ evenement.nom }}</td>
+        </tr>
+        <tr>
+            <th>Photo</th>
+            <td>{{ evenement.photo }}</td>
+
+
+        </tr>
+        <tr>
+            <th>Description</th>
+            <td>{{ evenement.description }}</td>
+        </tr>
+        <tr>
+            <th>Lieu</th>
+            <td>{{ evenement.lieu }}</td>
+        </tr>
+        <tr>
+            <th>Prix</th>
+            <td>{{ evenement.prix }}</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('evenement_index') }}">back to list</a>
+
+    <a href="{{ path('evenement_edit', {'id': evenement.id}) }}">edit</a>
+
+    <form method="post" action="{{ path('reservation_new') }}">
+        <button type="submit" class="form-btn semibold">Je choisis Cet événement</button>
+    </form>
+
+    <form method="POST">
+        <p>
+            <input style="display: none" value="{{ evenement.lieu }}" type="text" name="address" placeholder="Enter address">
+        </p>
+
+        <input class="genric-btn success circle" value="Montrer Dans Maps" type="submit" name="submit_address">
+    </form>
+    </br>
+    <ul>
+        <li><i class="fas fa-map-marker-alt"></i>{{ evenement.lieu }}</li></ul>
+    {{ include('evenement/_delete_form.html.twig') }}
+
+
+
+{% endblock %}

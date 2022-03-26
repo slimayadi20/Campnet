@@ -1,0 +1,39 @@
+{% extends 'base-back.html.twig' %}
+
+{% block title %}Promo index{% endblock %}
+
+{% block body %}
+    <h1>Promo index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom_promo</th>
+                <th>Nv_prix</th>
+                <th>Description_promo</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for promo in promos %}
+            <tr>
+                <td>{{ promo.id }}</td>
+                <td>{{ promo.NomPromo }}</td>
+                <td>{{ promo.nvPrix }}</td>
+                <td>{{ promo.DescriptionPromo }}</td>
+                <td>
+                    <a href="{{ path('app_promo_show', {'id': promo.id}) }}">show</a>
+                    <a href="{{ path('app_promo_edit', {'id': promo.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_promo_new') }}">Create new</a>
+{% endblock %}

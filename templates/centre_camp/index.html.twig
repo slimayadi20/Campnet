@@ -1,0 +1,69 @@
+{% extends 'frontcentre.html.twig' %}
+
+{% block title %}CentreCamp index{% endblock %}
+
+{% block ouba %}
+
+    
+
+ <h1>CentreCamp index</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom centre</th>
+                <th>Description</th>
+                <th>Imgage</th>
+                <th>Lieux</th>
+                <th>Telephone</th>
+                <th>Email</th>
+               
+                
+            </tr>
+        </thead>
+        <tbody>
+        {% for centre_camp in centre_camps %}
+            <tr>
+                <td>{{ centre_camp.id }}</td>
+                <td>{{ centre_camp.nomCentre }}</td>
+                <td>{{ centre_camp.DescriptionCentre }}</td>
+              
+                <td> <img src="{{asset('/public/images/' ~ centre_camp.imgCentre )}}" style="width: 80px:height:80px"></td>
+               
+                 <td>
+
+                       <form method="POST" action="{{path('app_centre_camp_show', {'id': centre_camp.id})}}">
+                        <p>
+                            <input style="display: none" value="{{ centre_camp.lieux }}" type="text" name="address" placeholder="Enter address">
+                        </p>
+
+                        <input class="genric-btn success circle" value="Montrer Dans Maps" type="submit" name="submit_address">
+                        <li><i class="fas fa-map-marker-alt"></i>{{ centre_camp.lieux }}</li>
+
+                    </form>
+                    </td>
+                </td>
+                <td>{{ centre_camp.tlfCentre }}</td>
+                <td>{{ centre_camp.mailCentre }}</td>
+              
+                <td>
+                    <a href="{{ path('app_centre_camp_showfront', {'id': centre_camp.id}) }}">show</a>
+                    <!-- <a href="{{ path('app_centre_camp_edit', {'id': centre_camp.id}) }}">edit</a> !-->
+                </td>
+            </tr>
+            
+ 
+        {% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+            
+        {% endfor %}
+        </tbody>
+
+    </table>
+    
+
+    
+{% endblock %}
+

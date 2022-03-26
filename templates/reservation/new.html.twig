@@ -1,0 +1,16 @@
+{% extends 'welcomeee.html.twig' %}
+
+{% block title %}New Reservation{% endblock %}
+
+{% block body %}
+
+    <h2 class="destination__title">Veuillez Remplir le Formulaire de Réservation</h2>
+
+
+    {{ include('reservation/_form.html.twig') }}
+
+    <form style="margin-left: 550px" action="{{ path('calendrier', {'id': 1})  }}">
+        <button class="place__title">Calendrier de reservations</button>
+    </form>
+
+{% endblock %}

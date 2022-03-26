@@ -2,30 +2,30 @@
 
 namespace App\Repository;
 
-use App\Entity\Resevation;
+use App\Entity\PropertySearch;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\OptimisticLockException;
 use Doctrine\ORM\ORMException;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @method Resevation|null find($id, $lockMode = null, $lockVersion = null)
- * @method Resevation|null findOneBy(array $criteria, array $orderBy = null)
- * @method Resevation[]    findAll()
- * @method Resevation[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method PropertySearch|null find($id, $lockMode = null, $lockVersion = null)
+ * @method PropertySearch|null findOneBy(array $criteria, array $orderBy = null)
+ * @method PropertySearch[]    findAll()
+ * @method PropertySearch[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class ResevationRepository extends ServiceEntityRepository
+class PropertySearchRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Resevation::class);
+        parent::__construct($registry, PropertySearch::class);
     }
 
     /**
      * @throws ORMException
      * @throws OptimisticLockException
      */
-    public function add(Resevation $entity, bool $flush = true): void
+    public function add(PropertySearch $entity, bool $flush = true): void
     {
         $this->_em->persist($entity);
         if ($flush) {
@@ -37,7 +37,7 @@ class ResevationRepository extends ServiceEntityRepository
      * @throws ORMException
      * @throws OptimisticLockException
      */
-    public function remove(Resevation $entity, bool $flush = true): void
+    public function remove(PropertySearch $entity, bool $flush = true): void
     {
         $this->_em->remove($entity);
         if ($flush) {
@@ -46,15 +46,15 @@ class ResevationRepository extends ServiceEntityRepository
     }
 
     // /**
-    //  * @return Resevation[] Returns an array of Resevation objects
+    //  * @return PropertySearch[] Returns an array of PropertySearch objects
     //  */
     /*
     public function findByExampleField($value)
     {
-        return $this->createQueryBuilder('r')
-            ->andWhere('r.exampleField = :val')
+        return $this->createQueryBuilder('p')
+            ->andWhere('p.exampleField = :val')
             ->setParameter('val', $value)
-            ->orderBy('r.id', 'ASC')
+            ->orderBy('p.id', 'ASC')
             ->setMaxResults(10)
             ->getQuery()
             ->getResult()
@@ -63,10 +63,10 @@ class ResevationRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?Resevation
+    public function findOneBySomeField($value): ?PropertySearch
     {
-        return $this->createQueryBuilder('r')
-            ->andWhere('r.exampleField = :val')
+        return $this->createQueryBuilder('p')
+            ->andWhere('p.exampleField = :val')
             ->setParameter('val', $value)
             ->getQuery()
             ->getOneOrNullResult()

@@ -1,0 +1,51 @@
+ {% extends 'base-back.html.twig' %} 
+
+
+{% block title %}CentreCamp{% endblock %}
+
+{% block body %}
+    <h1>CentreCamp</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ centre_camp.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom centre</th>
+                <td>{{ centre_camp.nomCentre }}</td>
+            </tr>
+            <tr>
+                <th>Description_centre</th>
+                <td>{{ centre_camp.DescriptionCentre }}</td>
+            </tr>
+            <tr>
+                <th>Img_centre</th>
+                <td>{{ centre_camp.imgCentre }}</td>
+            </tr>
+            <tr>
+                <th>Lieux</th>
+                <td>{{ centre_camp.lieux }}</td>
+            </tr>
+            <tr>
+                <th>Tlf_centre</th>
+                <td>{{ centre_camp.tlfCentre }}</td>
+            </tr>
+            <tr>
+                <th>Mail_centre</th>
+                <td>{{ centre_camp.mailCentre }}</td>
+            </tr>
+            <tr>
+                <th>Mdps_centre</th>
+                <td>{{ centre_camp.mdpsCentre }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_centre_camp_indexback') }}">back to list</a>
+
+    <a href="{{ path('app_centre_camp_edit', {'id': centre_camp.id}) }}">edit</a>
+
+    {{ include('centre_camp/_delete_form.html.twig') }}
+{% endblock %}
