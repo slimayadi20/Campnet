@@ -4,7 +4,7 @@ namespace App\Entity;
 
 use App\Repository\ProduitRepository;
 use Doctrine\ORM\Mapping as ORM;
-
+use Symfony\Component\Serializer\Annotation\Groups;
 use function PHPUnit\Framework\assertNotNull;
 
 
@@ -17,6 +17,7 @@ class Produit
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups("post:read")
      */
     private $id;
 
@@ -24,13 +25,14 @@ class Produit
 
     /**
      * @ORM\Column(type="string", length=255)
-
+     * @Groups("post:read")
      */
 
     private $nom;
 
     /**
      * @ORM\Column(type="float")
+     * @Groups("post:read")
      */
     private $prix;
     /**
@@ -41,15 +43,18 @@ class Produit
 
     /**
      * @ORM\Column (type="string");
+     * @Groups("post:read")
      */
     private $description;
 
     /**
      * @ORM\Column (type="string")
+     * @Groups("post:read")
      */
     private $disponibilte;
     /**
      * @ORM\Column (type="string");
+     * @Groups("post:read")
      */
     private $photo;
 

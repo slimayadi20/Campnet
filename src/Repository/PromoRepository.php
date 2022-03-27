@@ -44,7 +44,12 @@ class PromoRepository extends ServiceEntityRepository
             $this->_em->flush();
         }
     }
-
+    public function triStatusASC(){
+        return $this->createQueryBuilder('u')
+            ->orderBy('u.Nom_promo','ASC')
+            ->getQuery()
+            ->getResult();
+    }
     // /**
     //  * @return Promo[] Returns an array of Promo objects
     //  */

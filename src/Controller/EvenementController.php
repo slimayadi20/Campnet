@@ -15,6 +15,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
 
+
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
@@ -175,7 +176,7 @@ class EvenementController extends AbstractController
 
     //
     /**
-     * @Route("/new", name="evenement_new", methods={"GET", "POST"})
+     * @Route("/new", name="evenement_new")
      */
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {

@@ -8,6 +8,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 use Captcha\Bundle\CaptchaBundle\Validator\Constraints as CaptchaAssert;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 
 
@@ -23,6 +24,7 @@ class User implements UserInterface
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups("post:read")
      */
     private $id;
 
@@ -34,7 +36,7 @@ class User implements UserInterface
      *      minMessage = "Le nom n'est pas valide",
      *      maxMessage = "le nom est trop long"
      * )
-     *
+     * @Groups("post:read")
      */
     private $Nom;
 
@@ -46,6 +48,7 @@ class User implements UserInterface
      *      minMessage = "Le prenom n'est valide",
      *      maxMessage = "le prenom est trop long"
      * )
+     * @Groups("post:read")
      */
     private $Prenom;
 
@@ -61,6 +64,8 @@ class User implements UserInterface
      *      max = 99999999,
      *      notInRangeMessage = "le numero doit etre composer de 8 chiffres",
      * )
+     * @Groups("post:read")
+
      */
     private $GSM;
 
@@ -70,17 +75,20 @@ class User implements UserInterface
      *     message = "The email '{{ value }}' is not a valid email." ,
      *     checkMX = true
      * )
+     * @Groups("post:read")
      */
     private $email;
 
     /**
      * @ORM\Column(type="json")
+     * @Groups("post:read")
      */
     private $roles = [];
 
     /**
      * @var string The hashed password
      * @ORM\Column(type="string")
+     * @Groups("post:read")
      */
     private $password;
 

@@ -67,7 +67,7 @@ class Livreur
     /**
      * @ORM\OneToMany (targetEntity="App\Entity\Commande", mappedBy="idlivreur")
      */
-    private    $Livreur;
+    private $Livreur;
 
 
     /**

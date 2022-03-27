@@ -44,7 +44,12 @@ class ActiviteRepository extends ServiceEntityRepository
             $this->_em->flush();
         }
     }
-
+    public function triStatusASC(){
+        return $this->createQueryBuilder('u')
+            ->orderBy('u.prix','ASC')
+            ->getQuery()
+            ->getResult();
+    }
     // /**
     //  * @return Activite[] Returns an array of Activite objects
     //  */
